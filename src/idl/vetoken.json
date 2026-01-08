@@ -645,6 +645,10 @@
             "type": "i64"
           },
           {
+            "name": "weightedStartTs",
+            "type": "i64"
+          },
+          {
             "name": "targetRewardsPct",
             "type": "u16"
           },
@@ -657,7 +661,7 @@
             "type": {
               "array": [
                 "u8",
-                240
+                232
               ]
             }
           }

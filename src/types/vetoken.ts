@@ -645,6 +645,10 @@ export type Vetoken = {
             "type": "i64"
           },
           {
+            "name": "weightedStartTs",
+            "type": "i64"
+          },
+          {
             "name": "targetRewardsPct",
             "type": "u16"
           },
@@ -657,7 +661,7 @@ export type Vetoken = {
             "type": {
               "array": [
                 "u8",
-                240
+                232
               ]
             }
           }
@@ -1764,6 +1768,10 @@ export const IDL: Vetoken = {
             "type": "i64"
           },
           {
+            "name": "weightedStartTs",
+            "type": "i64"
+          },
+          {
             "name": "targetRewardsPct",
             "type": "u16"
           },
@@ -1776,7 +1784,7 @@ export const IDL: Vetoken = {
             "type": {
               "array": [
                 "u8",
-                240
+                232
               ]
             }
           }
