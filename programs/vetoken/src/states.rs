@@ -65,17 +65,20 @@ pub struct Lockup {
     pub start_ts: i64,
     pub end_ts: i64,
 
-    // New field to track weighted start for voting/reward power
-    pub weighted_start_ts: i64,
-
     pub target_rewards_pct: u16, // in percent
     pub target_voting_pct: u16,  // in percent
 
-    // Reduced padding to keep total size unchanged after adding weighted_start_ts
+    // New field to track weighted start for voting/reward power
+    // Added after existing fields for backward compatibility
+    pub weighted_start_ts: i64,
+    
+    // Padding at the end for future field additions
+    // Reduced from 240 to 232 bytes to accommodate weighted_start_ts
     pub _padding: [u8; 232],
 }
 
 impl Lockup {
+    // Legacy size before adding weighted_start_ts field
     pub const LEGACY_SIZE: usize = 8  // discriminator
         + 32  // ns
         + 32  // owner
@@ -84,7 +87,7 @@ impl Lockup {
         + 8   // end_ts
         + 2   // target_rewards_pct
         + 2   // target_voting_pct
-        + 240; // legacy padding
+        + 240; // legacy padding (total: 340 bytes)
 
     pub fn min_end_ts(&self, ns: &Namespace) -> i64 {
         ns.now()
