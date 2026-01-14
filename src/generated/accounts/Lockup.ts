@@ -49,8 +49,8 @@ export class Lockup {
     borsh.i64("endTs"),
     borsh.u16("targetRewardsPct"),
     borsh.u16("targetVotingPct"),
-    borsh.array(borsh.u8(), 232, "padding"),
     borsh.i64("weightedStartTs"),
+    borsh.array(borsh.u8(), 232, "padding"),
   ])
 
   constructor(fields: LockupFields) {
